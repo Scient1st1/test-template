@@ -1,0 +1,484 @@
+/* fonts */
+
+@font-face {
+    font-family: mon-b;
+    src: url('/fonts/mon-b/Montserrat-Bold.eot');
+    src: url('/fonts/mon-b/Montserrat-Bold.otf');
+    src: url('/fonts/mon-b/Montserrat-Bold.svg');
+    src: url('/fonts/mon-b/Montserrat-Bold.ttf');
+    src: url('/fonts/mon-b/Montserrat-Bold.woff');
+    src: url('/fonts/mon-b/Montserrat-Bold.woff2');
+}
+
+@font-face {
+    font-family: mon-r;
+    src: url('/fonts/mon-r/Montserrat-Regular.eot');
+    src: url('/fonts/mon-r/Montserrat-Regular.svg');
+    src: url('/fonts/mon-r/Montserrat-Regular.ttf');
+    src: url('/fonts/mon-r/Montserrat-Regular.woff');
+    src: url('/fonts/mon-r/Montserrat-Regular.woff2');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.all {
+    /* background-color: rgba(48, 41, 43, 1) */
+    background-color: #1b1718;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-transition: all .4 ease;
+    -moz-transition: all .4 ease;
+    -o-transition: all .4 ease;
+    transition: all .4 ease;
+    color: #cebba3;
+    font-size: 14px;
+}
+
+a:hover, a:active {
+    color: #e2ae69;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+    text-decoration: none;
+}
+
+ol, ul {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+}
+
+.cls {
+    clear: both;
+}
+
+.transit {
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+#slider {
+    margin-bottom: 60px;
+}
+
+.page_body {
+    margin-bottom: 60px;
+}
+
+.nosliderbody .page_body {
+    padding-top: 60px;
+}
+
+.search_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    z-index: 500;
+    display: none;
+    display: none;
+}
+
+.search_overlay_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 40px;
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+.search_overlay_close:hover {
+    color: #e2ae69;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+.search_opened {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 600;
+}
+
+.search_opened input {
+    width: 80%;
+    height: 50px;
+    background: #fff;
+    padding: 0 20px;
+}
+
+.search_opened span {
+    cursor: pointer;
+    position: relative;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    color: #e2ae69;
+}
+
+/* travel animation */
+
+.background a {
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px;
+    background-color: #30292b;
+}
+
+.cardWrapper {
+    display: flex;
+    flex-direction: column;
+    /* width: 100%; */
+    height: 200px;
+    perspective: 500px;
+    margin: 5px;
+}
+
+.cardWrapper:hover .rotate {
+    transform: rotateX(180deg) translate3d(0, 0, 0);
+    box-shadow: 8px -10px 15px 0 rgba(0, 0, 0, 0.5);
+}
+
+.cardWrapper .rotate {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+    perspective: 1000px;
+    box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.5);
+}
+
+.cardWrapper .rotate .front, .cardWrapper .rotate .back {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #d1a162;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.cardWrapper .rotate .front {
+    z-index: 2;
+    transform: rotateX(0);
+}
+
+.cardWrapper .rotate .front .image {
+    animation: ride 0.5s ease-in-out infinite;
+}
+
+.cardWrapper .rotate .front .roadWrapper {
+    position: absolute;
+    top: 133px;
+    left: 80px;
+    width: 200px;
+    height: 3px;
+    overflow: hidden;
+}
+
+.cardWrapper .rotate .front .roadWrapper .line-1 {
+    position: absolute;
+    right: -25px;
+    top: 0;
+    height: 3px;
+    width: 4px;
+    background: #4b4841;
+    border-radius: 3px;
+    animation: lines 1.0857142857s linear 1s infinite;
+}
+
+.cardWrapper .rotate .front .roadWrapper .line-2 {
+    position: absolute;
+    right: -25px;
+    top: 0;
+    height: 3px;
+    width: 6px;
+    background: #4b4841;
+    border-radius: 3px;
+    animation: lines 1.0857142857s linear 0.7s infinite;
+}
+
+.cardWrapper .rotate .front .roadWrapper .line-3 {
+    position: absolute;
+    right: -25px;
+    top: 0;
+    height: 3px;
+    width: 8px;
+    background: #4b4841;
+    border-radius: 3px;
+    animation: lines 1.0857142857s linear 1s infinite;
+}
+
+.cardWrapper .rotate .front .roadWrapper .line-4 {
+    position: absolute;
+    right: -25px;
+    top: 0;
+    height: 3px;
+    width: 10px;
+    background: #4b4841;
+    border-radius: 3px;
+    animation: lines 0.9428571429s linear 0.3s infinite;
+}
+
+.cardWrapper .rotate .front .roadWrapper .line-5 {
+    position: absolute;
+    right: -25px;
+    top: 0;
+    height: 3px;
+    width: 12px;
+    background: #4b4841;
+    border-radius: 3px;
+    animation: lines 1.0857142857s linear 0.9s infinite;
+}
+
+.cardWrapper .rotate .front .roadWrapper .line-6 {
+    position: absolute;
+    right: -25px;
+    top: 0;
+    height: 3px;
+    width: 14px;
+    background: #4b4841;
+    border-radius: 3px;
+    animation: lines 1.0857142857s linear 1s infinite;
+}
+
+.cardWrapper .rotate .front .roadWrapper .line-7 {
+    position: absolute;
+    right: -25px;
+    top: 0;
+    height: 3px;
+    width: 16px;
+    background: #4b4841;
+    border-radius: 3px;
+    animation: lines 1.0857142857s linear 0.4s infinite;
+}
+
+.cardWrapper .rotate .back {
+    z-index: 1;
+    transform: rotateX(180deg);
+}
+
+.cardWrapper .rotate .back .image {
+    animation: fly 2s ease-in-out infinite;
+    z-index: 2;
+    filter: grayscale(40%);
+}
+
+.cardWrapper .rotate .back .skyWrapper {
+    position: absolute;
+    top: 23px;
+    bottom: 0;
+    left: 80px;
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.cardWrapper .rotate .back .skyWrapper .cloud-1 {
+    position: absolute;
+    right: -25px;
+    top: 34px;
+    height: 3px;
+    width: 10.8px;
+    background: #4b4841;
+    border-radius: 3px;
+    animation: lines 0.8s linear 1s infinite;
+}
+
+.cardWrapper .rotate .back .skyWrapper .cloud-2 {
+    position: absolute;
+    right: -25px;
+    top: 48px;
+    height: 3px;
+    width: 18.6px;
+    background: #4b4841;
+    border-radius: 3px;
+    animation: lines 0.8s linear 0.5s infinite;
+}
+
+.cardWrapper .rotate .back .skyWrapper .cloud-3 {
+    position: absolute;
+    right: -25px;
+    top: 62px;
+    height: 3px;
+    width: 13.7px;
+    background: #4b4841;
+    border-radius: 3px;
+    animation: lines 0.7s linear 0.3s infinite;
+}
+
+.cardWrapper .rotate .back .skyWrapper .cloud-4 {
+    position: absolute;
+    right: -25px;
+    top: 76px;
+    height: 3px;
+    width: 10.1px;
+    background: #4b4841;
+    border-radius: 3px;
+    animation: lines 0.7s linear 0.8s infinite;
+}
+
+.cardWrapper .rotate .back .skyWrapper .cloud-5 {
+    position: absolute;
+    right: -25px;
+    top: 90px;
+    height: 3px;
+    width: 23.3px;
+    background: #4b4841;
+    border-radius: 3px;
+    animation: lines 0.7s linear 0.2s infinite;
+}
+
+.cardWrapper .rotate .back .skyWrapper .cloud-6 {
+    position: absolute;
+    right: -25px;
+    top: 104px;
+    height: 3px;
+    width: 18.2px;
+    background: #4b4841;
+    border-radius: 3px;
+    animation: lines 0.7s linear 0.9s infinite;
+}
+
+.cardWrapper .rotate .back .skyWrapper .cloud-7 {
+    position: absolute;
+    right: -25px;
+    top: 118px;
+    height: 3px;
+    width: 17.3px;
+    background: #4b4841;
+    border-radius: 3px;
+    animation: lines 0.8s linear 1s infinite;
+}
+
+.cardWrapper .rotate .image {
+    position: relative;
+    transform-origin: 50% 100%;
+}
+
+@keyframes ride {
+    0%, 100% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(0.96);
+    }
+}
+
+@keyframes fly {
+    0%, 100% {
+        transform: translate3d(0, -10px, 0);
+    }
+    50% {
+        transform: translate3d(0, 10px, 0);
+    }
+}
+
+@keyframes lines {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-250px, 0, 0);
+    }
+}
+
+/* swing animation */
+
+.swing {
+    animation: swing ease-in-out 1s infinite alternate;
+    transform-origin: center -20px;
+    float: left;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.swing img {
+    border: 5px solid #f8f8f8;
+    display: block;
+    margin-top: 5px;
+}
+
+.swing:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #999;
+    top: -10px;
+    left: 50%;
+    z-index: 0;
+    border-bottom: none;
+    border-right: none;
+    transform: translate(-40%) rotate(45deg);
+}
+
+/* nail */
+
+.swing:before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    top: -14px;
+    left: 50%;
+    z-index: 5;
+    border-radius: 50% 50%;
+    background: #e2ae69
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(3deg);
+    }
+    100% {
+        transform: rotate(-3deg);
+    }
+}
+
+.swing a {
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    background-color: #30292b;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+/* swing */
